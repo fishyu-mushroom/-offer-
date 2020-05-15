@@ -1,14 +1,14 @@
 class Solution {
 public:
-    //ºóĞø±éÀú  ×óÓÒ¸ù
-    //¶ş²æËÑË÷Ê÷ÌØµã  ×óº¢×Ó < ¸¸Ç×½áµã < ÓÒº¢×Ó
-    //×óÓÒ¸ù    
-    //Êı×é×îºóÒ»¸öÊı×Ö¾ÍÊÇ¸ù½Úµã/¸¸Ç×½áµã 
-    //×óÓÒ×ÓÊ÷·Ö½çµã  Óë¸ù½ÚµãÏà±È½Ï
+    //åç»­éå†  å·¦å³æ ¹
+    //äºŒå‰æœç´¢æ ‘ç‰¹ç‚¹  å·¦å­©å­ < çˆ¶äº²ç»“ç‚¹ < å³å­©å­
+    //å·¦å³æ ¹    
+    //æ•°ç»„æœ€åä¸€ä¸ªæ•°å­—å°±æ˜¯æ ¹èŠ‚ç‚¹/çˆ¶äº²ç»“ç‚¹ 
+    //å·¦å³å­æ ‘åˆ†ç•Œç‚¹  ä¸æ ¹èŠ‚ç‚¹ç›¸æ¯”è¾ƒ
     vector<int> seq;
     bool VerifySquenceOfBST(vector<int> sequence) {
         seq = sequence;
-        if(seq.empty()) return false;
+        if(seq.empty()) return true;
         return dfs(0, seq.size() - 1);
     }
     
@@ -16,12 +16,12 @@ public:
     {
         if(l >= r) return true;
         
-        //¸¸Ç×½áµã
+        //çˆ¶äº²ç»“ç‚¹
         int father = seq[r];
-        //×ó×ÓÊ÷ ¶¼Ğ¡ÓÚ
+        //å·¦å­æ ‘ éƒ½å°äº
         int k = l;
         while(k < r && seq[k] < father) k ++;
-        //ÓÒ×ÓÊ÷ ¶¼´óÓÚ
+        //å³å­æ ‘ éƒ½å¤§äº
         for(int i = k; i < r; i ++)
             if(seq[i] < father)
                 return false;
